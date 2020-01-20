@@ -6,7 +6,11 @@ public class CameraController : MonoBehaviour
 {
     public Transform target;
 
-    public Transform farBackground, middleBackground;
+    public Transform farBackground;
+    public Transform middleBackground;
+
+    public float minHeight = -1.5f;
+    public float maxHeight = 2.5f;
 
     private float lastXPos;
 
@@ -19,7 +23,8 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(target.position.x, transform.position.y, transform.position.z);
+        float campedY = Mathf.Clamp(target.position.y, minHeight, maxHeight);
+        transform.position = new Vector3(target.position.x, campedY, transform.position.z);
 
         float amountToMoveX = transform.position.x - lastXPos;
         lastXPos = transform.position.x;
