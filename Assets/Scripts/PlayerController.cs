@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
     public float moveSpeed;
     public Rigidbody2D rb;
     public float jumpForce;
@@ -17,6 +19,14 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sr;
 
+    public float knockBackLength, knockBackForce;
+    private float knockackCounter;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +36,20 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        if (knockackCounter <= 0)
+        {
+            HandleInputs();
+        } else
+        {
+            knockackCounter -= Time.deltaTime;
+            rb.velocity = new Vector2((sr.flipX ? 1 : -1) * knockBackForce, rb.velocity.y);
+        }
+
+        HandleAnimation();
+    }
+
+    private void HandleInputs()
     {
         rb.velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), rb.velocity.y);
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, .2f, whatIsGround);
@@ -54,13 +78,25 @@ public class PlayerController : MonoBehaviour
         if (rb.velocity.x < 0)
         {
             sr.flipX = true;
-        } else if (rb.velocity.x > 0)
+        }
+        else if (rb.velocity.x > 0)
         {
             sr.flipX = false;
         }
+    }
 
+    private void HandleAnimation()
+    {
         anim.SetFloat("moveSpeed", Mathf.Abs(rb.velocity.x));
         anim.SetFloat("jumpSpeed", rb.velocity.y);
         anim.SetBool("isGrounded", isGrounded);
+    }
+
+    public void KnockBack()
+    {
+        knockackCounter = knockBackLength;
+        rb.velocity = new Vector2(0, knockBackForce);
+
+        anim.SetTrigger("hurt");
     }
 }
