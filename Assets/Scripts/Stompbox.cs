@@ -38,6 +38,8 @@ public class Stompbox : MonoBehaviour
             {
                 Instantiate(collectable, other.transform.position, other.transform.rotation);
             }
+
+            AudioManager.instance.PlaySFX(3);
         }
     }
 }
