@@ -20,7 +20,9 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sr;
 
     public float knockBackLength, knockBackForce;
-    private float knockackCounter;
+    private float knockBackCounter;
+
+    public float bounceForce;
 
     private void Awake()
     {
@@ -37,12 +39,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (knockackCounter <= 0)
+        if (knockBackCounter <= 0)
         {
             HandleInputs();
         } else
         {
-            knockackCounter -= Time.deltaTime;
+            knockBackCounter -= Time.deltaTime;
             rb.velocity = new Vector2((sr.flipX ? 1 : -1) * knockBackForce, rb.velocity.y);
         }
 
@@ -94,9 +96,14 @@ public class PlayerController : MonoBehaviour
 
     public void KnockBack()
     {
-        knockackCounter = knockBackLength;
+        knockBackCounter = knockBackLength;
         rb.velocity = new Vector2(0, knockBackForce);
 
         anim.SetTrigger("hurt");
+    }
+
+    public void Bounce()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, bounceForce);
     }
 }
