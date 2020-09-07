@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource[] soundEffects;
 
+    public AudioSource bgm, levelEndMusic;
+
     private void Awake()
     {
         instance = this;
@@ -28,6 +30,8 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX(int soundToPlay)
     {
         soundEffects[soundToPlay].Stop();
+
+        soundEffects[soundToPlay].pitch = Random.Range(0.9f, 1.1f);
 
         soundEffects[soundToPlay].Play();
     }
