@@ -71,6 +71,8 @@ public class LevelManager : MonoBehaviour
 
         yield return new WaitForSeconds(1/UIController.instance.fadeSpeed + 0.25f);
 
+        PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1);
+
         SceneManager.LoadScene(levelToLoad);
     }
 }
