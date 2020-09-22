@@ -78,4 +78,22 @@ public class PlayerHealthController : MonoBehaviour
 
         UIController.instance.UpdateHealthDisplay();
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log("Child is: " + other.gameObject.tag);
+        if (other.gameObject.tag == "Platform")
+        {
+            transform.parent = other.transform;
+            Debug.Log("Child is Platform");
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Platform")
+        {
+            transform.parent = null;
+        }
+    }
 }
