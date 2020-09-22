@@ -31,7 +31,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8980537880953945292}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.788}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -554,9 +554,9 @@ RectTransform:
   - {fileID: 8980537881347273204}
   - {fileID: 8980537881124294914}
   - {fileID: 8980537880710982071}
-  - {fileID: 8980537881772722182}
   - {fileID: 7311466894288369586}
   - {fileID: 8980537882239165646}
+  - {fileID: 8980537881772722182}
   m_Father: {fileID: 7823943817800409402}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -660,7 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8984daa44b34c81a878726d07c25ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSelect: 
+  levelSelect: Level Select
   mainMenu: Main_Menu
   pauseScreen: {fileID: 8980537881772722177}
   isPaused: 0
@@ -710,6 +710,7 @@ MonoBehaviour:
   waitToRespawn: 2
   gemsCollected: 0
   levelToLoad: 
+  timeInLevel: 0
 --- !u!1 &8980537881124294909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,7 +1012,7 @@ RectTransform:
   - {fileID: 2900505957297278722}
   - {fileID: 2900505955736670889}
   m_Father: {fileID: 8980537880953945292}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1159,7 +1160,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8980537880953945292}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1280,6 +1281,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7110608950622113531, guid: 08f47eb59e90b466897963f560da3e50,
+        type: 3}
+      propertyPath: levelEndMusic
+      value: 
+      objectReference: {fileID: 8980537880450105044}
     - target: {fileID: 7110608950624545917, guid: 08f47eb59e90b466897963f560da3e50,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -1345,6 +1351,12 @@ PrefabInstance:
 --- !u!4 &8980537881727988930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7110608950622113530, guid: 08f47eb59e90b466897963f560da3e50,
+    type: 3}
+  m_PrefabInstance: {fileID: 2165302015123438136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &8980537880450105044 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7110608951501407468, guid: 08f47eb59e90b466897963f560da3e50,
     type: 3}
   m_PrefabInstance: {fileID: 2165302015123438136}
   m_PrefabAsset: {fileID: 0}

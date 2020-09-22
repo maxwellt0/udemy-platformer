@@ -25,6 +25,8 @@ public class LSPlayer : MonoBehaviour
     {
         LSUIController.instance.HideInfo();
         currentPoint = nextPoint;
+
+        AudioManager.instance.PlaySFX(5);
     }
 
     private void HandleMovement()

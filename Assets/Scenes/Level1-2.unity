@@ -9899,11 +9899,22 @@ PrefabInstance:
       propertyPath: levelToLoad
       value: Main_Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 8980537881727988931, guid: 317a4191bc4ec4b03acc4527617009a7,
+        type: 3}
+      propertyPath: levelEndMusic
+      value: 
+      objectReference: {fileID: 1966002123}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 317a4191bc4ec4b03acc4527617009a7, type: 3}
 --- !u!4 &1966002122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8980537881491404477, guid: 317a4191bc4ec4b03acc4527617009a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1966002121}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1966002123 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8980537880450105044, guid: 317a4191bc4ec4b03acc4527617009a7,
     type: 3}
   m_PrefabInstance: {fileID: 1966002121}
   m_PrefabAsset: {fileID: 0}

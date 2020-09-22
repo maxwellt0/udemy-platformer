@@ -9874,6 +9874,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8980537880639959619, guid: 317a4191bc4ec4b03acc4527617009a7,
+        type: 3}
+      propertyPath: m_ForceModuleActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8980537880754813874, guid: 317a4191bc4ec4b03acc4527617009a7,
         type: 3}
       propertyPath: m_Offset.x
@@ -9894,10 +9899,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8980537880953945298, guid: 317a4191bc4ec4b03acc4527617009a7,
+        type: 3}
+      propertyPath: levelSelect
+      value: Level Select
+      objectReference: {fileID: 0}
     - target: {fileID: 8980537881121292817, guid: 317a4191bc4ec4b03acc4527617009a7,
         type: 3}
       propertyPath: levelToLoad
       value: Level Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980537882239165643, guid: 317a4191bc4ec4b03acc4527617009a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 317a4191bc4ec4b03acc4527617009a7, type: 3}
