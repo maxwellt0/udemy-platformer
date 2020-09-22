@@ -9382,6 +9382,8 @@ MonoBehaviour:
   - {fileID: 1445104758}
   moveSpeed: 5
   theSR: {fileID: 1232727648}
+  distanceToAttackPlayer: 10
+  chaseSpeed: 10
 --- !u!4 &1166008850
 Transform:
   m_ObjectHideFlags: 0
