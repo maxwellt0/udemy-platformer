@@ -10,7 +10,7 @@ public class LSManager : MonoBehaviour
     private MapPoint[] allPoints;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         allPoints = FindObjectsOfType<MapPoint>();
 
@@ -28,7 +28,7 @@ public class LSManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }

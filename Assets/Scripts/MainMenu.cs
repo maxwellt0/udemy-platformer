@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     public GameObject continueButton;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         if (PlayerPrefs.HasKey(startScene + "_unlocked"))
         {
@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }

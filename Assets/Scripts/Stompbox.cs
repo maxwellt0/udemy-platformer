@@ -11,13 +11,13 @@ public class Stompbox : MonoBehaviour
     [Range(0, 100)] public float chanceToDrop;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }

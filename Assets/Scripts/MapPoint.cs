@@ -13,7 +13,7 @@ public class MapPoint : MonoBehaviour
     public GameObject gemBadge, timeBadge;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         if (isLevel && levelToLoad != null)
         {
@@ -46,7 +46,7 @@ public class MapPoint : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }

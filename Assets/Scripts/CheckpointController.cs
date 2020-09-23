@@ -15,7 +15,7 @@ public class CheckpointController : MonoBehaviour
         instance = this;
     }
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         checkpoints = FindObjectsOfType<Checkpoint>();
 
@@ -23,7 +23,7 @@ public class CheckpointController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }

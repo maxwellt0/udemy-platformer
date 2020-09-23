@@ -18,7 +18,7 @@ public class EnemyController : MonoBehaviour
     private float moveCount, waitCount;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         theRB = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (moveCount > 0)
         {
@@ -63,7 +63,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void Move()
+    private void Move()
     {
         if (movingRight)
         {

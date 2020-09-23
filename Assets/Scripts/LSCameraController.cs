@@ -8,13 +8,13 @@ public class LSCameraController : MonoBehaviour
     public Transform target;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    private void LateUpdate()
     {
         float xPos = Mathf.Clamp(target.position.x, minPos.x, maxPos.x);
         float yPos = Mathf.Clamp(target.position.y, minPos.y, maxPos.y);
