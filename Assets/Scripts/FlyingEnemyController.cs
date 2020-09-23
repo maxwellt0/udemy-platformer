@@ -9,6 +9,8 @@ public class FlyingEnemyController : MonoBehaviour
 
     public float distanceToAttackPlayer, chaseSpeed;
 
+    private Vector3 attackTarget;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -26,9 +28,15 @@ public class FlyingEnemyController : MonoBehaviour
         if (Vector3.Distance(transform.position, playerPos) > distanceToAttackPlayer)
         {
             FlapAround();
+            
+            attackTarget = Vector3.zero;
         } else
         {
-            MoveTowards(playerPos, chaseSpeed);
+            if (attackTarget == Vector3.zero)
+            {
+                attackTarget = playerPos;
+            }
+            MoveTowards(attackTarget, chaseSpeed);
         }
     }
 
