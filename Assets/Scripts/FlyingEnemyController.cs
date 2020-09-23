@@ -10,6 +10,8 @@ public class FlyingEnemyController : MonoBehaviour
     public float distanceToAttackPlayer, chaseSpeed;
 
     private Vector3 attackTarget;
+    public float waitAfterAttack;
+    private float attackCounter;
 
     // Start is called before the first frame update
     private void Start()
@@ -23,21 +25,34 @@ public class FlyingEnemyController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (attackCounter >= 0)
+        {
+            attackCounter -= Time.deltaTime;
+            return;
+        }
+
         Vector3 playerPos = PlayerController.instance.transform.position;
-        
+
         if (Vector3.Distance(transform.position, playerPos) > distanceToAttackPlayer)
         {
             FlapAround();
-            
-            attackTarget = Vector3.zero;
-        } else
-        {
-            if (attackTarget == Vector3.zero)
-            {
-                attackTarget = playerPos;
-            }
-            MoveTowards(attackTarget, chaseSpeed);
+            return;
         }
+
+        if (attackTarget == Vector3.zero)
+        {
+            attackTarget = playerPos;
+        }
+
+        MoveTowards(attackTarget, chaseSpeed);
+
+        if (Vector3.Distance(transform.position, attackTarget) > .1f)
+        {
+            return;
+        }
+
+        attackCounter = waitAfterAttack;
+        attackTarget = Vector3.zero;
     }
 
     private void FlapAround()
@@ -48,7 +63,7 @@ public class FlyingEnemyController : MonoBehaviour
         {
             return;
         }
-        
+
         currentPoint++;
         if (currentPoint > points.Length - 1)
         {
@@ -74,5 +89,4 @@ public class FlyingEnemyController : MonoBehaviour
 
         HandleTurnToTarget(target);
     }
-
 }
