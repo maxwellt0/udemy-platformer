@@ -22,7 +22,7 @@ public class FlyingEnemyController : MonoBehaviour
     private void Update()
     {
         Vector3 playerPos = PlayerController.instance.transform.position;
-
+        
         if (Vector3.Distance(transform.position, playerPos) > distanceToAttackPlayer)
         {
             FlapAround();

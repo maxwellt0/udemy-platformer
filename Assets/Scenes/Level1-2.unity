@@ -9382,7 +9382,7 @@ MonoBehaviour:
   - {fileID: 1445104758}
   moveSpeed: 5
   theSR: {fileID: 1232727648}
-  distanceToAttackPlayer: 10
+  distanceToAttackPlayer: 4
   chaseSpeed: 10
 --- !u!4 &1166008850
 Transform:
@@ -10378,7 +10378,7 @@ PrefabInstance:
     - target: {fileID: 7823943817800409402, guid: 317a4191bc4ec4b03acc4527617009a7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30.062616
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7823943817800409402, guid: 317a4191bc4ec4b03acc4527617009a7,
         type: 3}

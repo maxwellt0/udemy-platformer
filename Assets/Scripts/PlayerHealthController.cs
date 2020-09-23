@@ -32,14 +32,16 @@ public class PlayerHealthController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (invincibleCounter > 0)
+        if (invincibleCounter <= 0)
         {
-            invincibleCounter -= Time.deltaTime;
+            return;
+        }
+        
+        invincibleCounter -= Time.deltaTime;
 
-            if (invincibleCounter <= 0)
-            {
-                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
-            }
+        if (invincibleCounter <= 0)
+        {
+            sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1f);
         }
     }
 
@@ -81,11 +83,9 @@ public class PlayerHealthController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("Child is: " + other.gameObject.tag);
         if (other.gameObject.tag == "Platform")
         {
             transform.parent = other.transform;
-            Debug.Log("Child is Platform");
         }
     }
 
