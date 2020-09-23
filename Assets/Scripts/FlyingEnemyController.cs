@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FlyingEnemyController : MonoBehaviour
 {
@@ -12,7 +10,7 @@ public class FlyingEnemyController : MonoBehaviour
     public float distanceToAttackPlayer, chaseSpeed;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         foreach (Transform point in points)
         {
@@ -21,7 +19,7 @@ public class FlyingEnemyController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Vector3 playerPos = PlayerController.instance.transform.position;
 
@@ -38,13 +36,15 @@ public class FlyingEnemyController : MonoBehaviour
     {
         MoveTowards(points[currentPoint].position, moveSpeed);
 
-        if (Vector3.Distance(transform.position, points[currentPoint].position) < .05f)
+        if (Vector3.Distance(transform.position, points[currentPoint].position) > .05f)
         {
-            currentPoint++;
-            if (currentPoint > points.Length - 1)
-            {
-                currentPoint = 0;
-            }
+            return;
+        }
+        
+        currentPoint++;
+        if (currentPoint > points.Length - 1)
+        {
+            currentPoint = 0;
         }
     }
 
