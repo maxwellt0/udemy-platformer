@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Slammer : MonoBehaviour
 {
-    public GameObject smasher;
     public GameObject slammerTarget;
     public float slamSpeed;
     public float waitAfterSlam;
     public float resetSpeed;
 
     private float waitAfterSlamCounter;
-    private bool hasSlammed;
+    private int directionY = 0;
     private Vector3 initialPos;
     private void Start()
     {
@@ -21,34 +20,57 @@ public class Slammer : MonoBehaviour
 
     private void Update()
     {
-        if (waitAfterSlamCounter > 0f && hasSlammed)
+        if (waitAfterSlamCounter > 0f)
         {
             waitAfterSlamCounter -= Time.deltaTime;
             return;
         }
         
-        if (Vector3.Distance(slammerTarget.transform.position, transform.position) < .5f)
+        switch (directionY)
         {
-            transform.position = Vector3.MoveTowards(transform.position, initialPos, resetSpeed * Time.deltaTime);
-        }
-        
-        if (Vector3.Distance(slammerTarget.transform.position, PlayerController.instance.transform.position) < 2f)
-        {
-            MoveToTarget();
-
-            if (Vector3.Distance(slammerTarget.transform.position, smasher.transform.position) < .5f)
-            {
-                hasSlammed = true;
+            case 0 when IsPlayerClose():
+                directionY = -1;
+                break;
+            case -1 when IsAtTheBottom():
                 waitAfterSlamCounter = waitAfterSlam;
-            }
+                directionY = 1;
+                break;
+            case 1 when IsAtTheTop():
+                directionY = 0;
+                break;
         }
-        
-       
+
+        MoveInDirection();
     }
 
-    private void MoveToTarget()
+    private void MoveInDirection()
     {
-        transform.position =
-            Vector3.MoveTowards(transform.position, slammerTarget.transform.position, slamSpeed * Time.deltaTime);
+        switch (directionY)
+        {
+            // going down
+            case -1:
+                transform.position =
+                    Vector3.MoveTowards(transform.position, slammerTarget.transform.position, slamSpeed * Time.deltaTime);
+                break;
+            // going up
+            case 1:
+                transform.position = Vector3.MoveTowards(transform.position, initialPos, resetSpeed * Time.deltaTime);
+                break;
+        }
+    }
+
+    private bool IsAtTheTop()
+    {
+        return Vector3.Distance(initialPos, transform.position) < .05f;
+    }
+
+    private bool IsAtTheBottom()
+    {
+        return Vector3.Distance(slammerTarget.transform.position, transform.position) < .05f;
+    }
+
+    private bool IsPlayerClose()
+    {
+        return Vector3.Distance(slammerTarget.transform.position, PlayerController.instance.transform.position) < 2f;
     }
 }
