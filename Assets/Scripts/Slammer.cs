@@ -8,7 +8,6 @@ public class Slammer : MonoBehaviour
     public float slamSpeed;
     public float waitAfterSlam;
     public float resetSpeed;
-
     
     private float waitAfterSlamCounter;
     private int directionY = 0;
