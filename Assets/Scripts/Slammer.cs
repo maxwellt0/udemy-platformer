@@ -9,6 +9,7 @@ public class Slammer : MonoBehaviour
     public float waitAfterSlam;
     public float resetSpeed;
 
+    
     private float waitAfterSlamCounter;
     private int directionY = 0;
     private Vector3 initialPos;
