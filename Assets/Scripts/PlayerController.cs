@@ -15,18 +15,19 @@ public class PlayerController : MonoBehaviour
     private bool canDoubleJump;
 
     private Animator anim;
+    private SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         rb.velocity = new Vector2(moveSpeed * Input.GetAxis("Horizontal"), rb.velocity.y);
-
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position, .2f, whatIsGround);
 
         if (isGrounded)
@@ -48,6 +49,14 @@ public class PlayerController : MonoBehaviour
                     canDoubleJump = false;
                 }
             }
+        }
+
+        if (rb.velocity.x < 0)
+        {
+            sr.flipX = true;
+        } else if (rb.velocity.x > 0)
+        {
+            sr.flipX = false;
         }
 
         anim.SetFloat("moveSpeed", Mathf.Abs(rb.velocity.x));
