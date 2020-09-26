@@ -677,6 +677,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 8980537881121292817, guid: 317a4191bc4ec4b03acc4527617009a7,
+        type: 3}
+      propertyPath: levelToLoad
+      value: Victory_Screen
+      objectReference: {fileID: 0}
     - target: {fileID: 8980537881727988931, guid: 317a4191bc4ec4b03acc4527617009a7,
         type: 3}
       propertyPath: bossMusic

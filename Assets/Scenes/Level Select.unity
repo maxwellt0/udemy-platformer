@@ -4295,12 +4295,12 @@ PrefabInstance:
     - target: {fileID: 8377850819823392255, guid: 4b6bb340851ed463fbded68f7fea40b5,
         type: 3}
       propertyPath: levelToCheck
-      value: 
+      value: Level1-1
       objectReference: {fileID: 0}
     - target: {fileID: 8377850819823392255, guid: 4b6bb340851ed463fbded68f7fea40b5,
         type: 3}
       propertyPath: levelToLoad
-      value: 
+      value: Boss-1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b6bb340851ed463fbded68f7fea40b5, type: 3}
