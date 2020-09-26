@@ -77,6 +77,7 @@ public class BossTankController : MonoBehaviour
                             theTank.gameObject.SetActive(false);
                             Instantiate(explosion, theTank.position, theTank.rotation);
                             winPlatform.SetActive(true);
+                            AudioManager.instance.StopBossMusic();
                             currentState = BossState.Ended;
                         }
                     }
@@ -136,6 +137,7 @@ public class BossTankController : MonoBehaviour
         hurtCounter = hurtTime;
 
         anim.SetTrigger("Hit");
+        AudioManager.instance.PlaySFX(0);
 
         BossTankMine[] mines = FindObjectsOfType<BossTankMine>();
         if (mines.Length > 0)
