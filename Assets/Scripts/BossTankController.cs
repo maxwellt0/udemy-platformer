@@ -11,7 +11,7 @@ public class BossTankController : MonoBehaviour
 
     public BossState currentState;
 
-    public Transform theBoss;
+    public Transform theTank;
     public Animator anim;
 
     [Header("Movement")] public float moveSpeed;
@@ -51,28 +51,26 @@ public class BossTankController : MonoBehaviour
             case BossState.Moving:
                 if (moveRight)
                 {
-                    theBoss.position += new Vector3(moveSpeed * Time.deltaTime, 0f, 0f);
+                    theTank.position += new Vector3(moveSpeed * Time.deltaTime, 0f, 0f);
 
-                    if (theBoss.position.x > rightPoint.position.x)
+                    if (theTank.position.x > rightPoint.position.x)
                     {
-                        theBoss.localScale = Vector3.one;
+                        theTank.localScale = Vector3.one;
                         moveRight = false;
-                        currentState = BossState.Shooting;
-                        shotCounter = timeBetweenShots;
-                        anim.SetTrigger("StopMoving");
+                        
+                        EndMovement();
                     }
                 }
                 else
                 {
-                    theBoss.position -= new Vector3(moveSpeed * Time.deltaTime, 0f, 0f);
+                    theTank.position -= new Vector3(moveSpeed * Time.deltaTime, 0f, 0f);
 
-                    if (theBoss.position.x < leftPoint.position.x)
+                    if (theTank.position.x < leftPoint.position.x)
                     {
-                        theBoss.localScale = new Vector3(-1f,1f,1f);
+                        theTank.localScale = new Vector3(-1f,1f,1f);
                         moveRight = true;
-                        currentState = BossState.Shooting;
-                        shotCounter = timeBetweenShots;
-                        anim.SetTrigger("StopMoving");
+                       
+                        EndMovement();
                     }
                 }
                 break;
@@ -94,5 +92,13 @@ public class BossTankController : MonoBehaviour
         hurtCounter = hurtTime;
         
         anim.SetTrigger("Hit");
+    }
+
+    private void EndMovement()
+    {
+        currentState = BossState.Shooting;
+        shotCounter = timeBetweenShots;
+        
+        anim.SetTrigger("StopMoving");
     }
 }

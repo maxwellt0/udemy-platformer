@@ -242,8 +242,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  theBoss: {fileID: 0}
-  anim: {fileID: 0}
+  theTank: {fileID: 1306665543}
+  anim: {fileID: 1306665544}
   moveSpeed: 13
   leftPoint: {fileID: 1306381823}
   rightPoint: {fileID: 513303368}
