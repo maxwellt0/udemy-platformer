@@ -25,6 +25,7 @@ public class BossTankController : MonoBehaviour
 
     [Header("Hurt")] public float hurtTime;
     private float hurtCounter;
+    public GameObject hitBox;
 
     private void Start()
     {
@@ -108,5 +109,7 @@ public class BossTankController : MonoBehaviour
         shotCounter = timeBetweenShots;
         
         anim.SetTrigger("StopMoving");
+        
+        hitBox.SetActive(true);
     }
 }
