@@ -21,9 +21,14 @@ public class BossTankMine : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(gameObject);
-            Instantiate(explosion, transform.position, transform.rotation);
+            Explode();
             PlayerHealthController.instance.DealDamage();
         }
+    }
+
+    public void Explode()
+    {
+        Destroy(gameObject);
+        Instantiate(explosion, transform.position, transform.rotation);
     }
 }

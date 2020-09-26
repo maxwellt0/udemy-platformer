@@ -6,7 +6,8 @@ public class BossTankController : MonoBehaviour
     {
         Shooting,
         Hurt,
-        Moving
+        Moving,
+        Ended
     };
 
     public BossState currentState;
@@ -17,7 +18,7 @@ public class BossTankController : MonoBehaviour
     public float moveSpeed;
     public Transform leftPoint, rightPoint;
     private bool moveRight;
-    
+
     [Header("Mines")]
     public GameObject mine;
     public Transform minePoint;
@@ -34,6 +35,12 @@ public class BossTankController : MonoBehaviour
     public float hurtTime;
     private float hurtCounter;
     public GameObject hitBox;
+
+    [Header("Health")]
+    public int health = 5;
+    public GameObject explosion, winPlatform;
+    private bool isDefeated;
+    public float shotSpeedUp, mineSpeedUp;
 
     private void Start()
     {
@@ -64,6 +71,14 @@ public class BossTankController : MonoBehaviour
                     {
                         currentState = BossState.Moving;
                         mineCounter = 0;
+
+                        if (isDefeated)
+                        {
+                            theTank.gameObject.SetActive(false);
+                            Instantiate(explosion, theTank.position, theTank.rotation);
+                            winPlatform.SetActive(true);
+                            currentState = BossState.Ended;
+                        }
                     }
                 }
 
@@ -121,6 +136,27 @@ public class BossTankController : MonoBehaviour
         hurtCounter = hurtTime;
 
         anim.SetTrigger("Hit");
+
+        BossTankMine[] mines = FindObjectsOfType<BossTankMine>();
+        if (mines.Length > 0)
+        {
+            foreach (BossTankMine foundMine in mines)
+            {
+                foundMine.Explode();
+            }
+        }
+
+        health--;
+
+        if (health <= 0)
+        {
+            isDefeated = true;
+        }
+        else
+        {
+            timeBetweenShots /= shotSpeedUp;
+            timeBetweenMines /= mineSpeedUp;
+        }
     }
 
     private void EndMovement()

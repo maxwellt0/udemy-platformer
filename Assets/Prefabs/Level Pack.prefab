@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 8980537880476042540}
   - component: {fileID: 8980537880476042546}
   - component: {fileID: 8980537880476042541}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: Stompbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
