@@ -36,6 +36,14 @@ public class BossTankController : MonoBehaviour
         switch (currentState)
         {
             case BossState.Shooting:
+                shotCounter -= Time.deltaTime;
+                if (shotCounter <= 0)
+                {
+                    shotCounter = timeBetweenShots;
+
+                    GameObject newBullet = Instantiate(bullet, firePoint.position, firePoint.rotation);
+                    newBullet.transform.localScale = theTank.localScale;
+                }
                 break;
             case BossState.Hurt:
                 if (hurtCounter > 0)

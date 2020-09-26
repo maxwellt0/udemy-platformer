@@ -247,7 +247,7 @@ MonoBehaviour:
   moveSpeed: 13
   leftPoint: {fileID: 1306381823}
   rightPoint: {fileID: 513303368}
-  bullet: {fileID: 0}
+  bullet: {fileID: 2711786078424599869, guid: 28e78011679ca44f58405927262ad765, type: 3}
   firePoint: {fileID: 2057703823}
   timeBetweenShots: 1.5
   hurtTime: 1
